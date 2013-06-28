@@ -3564,9 +3564,6 @@ public final class Settings {
         public static final String STATUS_BAR_CARRIER_LABEL = "status_bar_carrier_label";
 
         public static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
-
-        public static final String STATUS_BAR_TRAFFIC_COLOR = "status_bar_traffic_color";
-
         /**
          * Whether to show statusbar WiFi signal text
          *
