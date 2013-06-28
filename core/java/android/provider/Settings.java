@@ -3559,6 +3559,9 @@ public final class Settings {
          */
         public static final String STATUSBAR_HIDE_SIGNAL_BARS = "statusbar_hide_signal_bars";
 
+        public static final String STATUS_BAR_CARRIER = "status_bar_carrier";
+
+        public static final String STATUS_BAR_CARRIER_LABEL = "status_bar_carrier_label";
 
         public static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
