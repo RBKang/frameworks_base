@@ -2065,4 +2065,8 @@
   <java-symbol type="string" name="symbol_picker_Y" />
   <java-symbol type="string" name="symbol_picker_z" />
   <java-symbol type="string" name="symbol_picker_Z" />
+
+  <!-- Screenshort Trash -->
+  <java-symbol type="string" name="trash" />
+
 </resources>
