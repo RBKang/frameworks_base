@@ -3544,6 +3544,8 @@ public final class Settings {
          */
         public static final String STATUSBAR_HIDE_SIGNAL_BARS = "statusbar_hide_signal_bars";
 
+
+        public static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
         /**
          * Whether to show statusbar WiFi signal text
          *
