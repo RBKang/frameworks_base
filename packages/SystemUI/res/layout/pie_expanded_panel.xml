@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2013 MoKee OpenSource Project
+<!-- Copyright (C) 2013 ParanoidAndroid Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -47,14 +47,29 @@
                     android:textAppearance="@style/TextAppearance.StatusBar.Expanded.Clock"
                     android:layout_centerVertical="true"
                     />
+		    
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/clock"           
+            >
+		<com.android.systemui.statusbar.policy.LunarDateView
+		    android:id="@+id/lunardate"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:singleLine="true"
+		    android:textAppearance="@style/TextAppearance.StatusBar.Expanded.Date"
+		    />
 
                 <com.android.systemui.statusbar.policy.DateView android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     android:textAppearance="@style/TextAppearance.StatusBar.Expanded.Date"
-                    android:layout_toRightOf="@id/clock"
-                    android:layout_centerVertical="true"
-                    />
+                    android:layout_below="@id/lunardate"
+		    />
+                    </RelativeLayout>
             </RelativeLayout>
 
             <RelativeLayout
