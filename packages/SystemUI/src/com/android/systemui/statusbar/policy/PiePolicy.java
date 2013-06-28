@@ -26,9 +26,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.text.format.DateUtils;
+import android.text.TextUtils;
 
 import com.android.systemui.R;
+import com.android.systemui.statusbar.util.SpnOverride;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,6 +45,7 @@ public class PiePolicy {
     private static Context mContext;
     private static int mBatteryLevel = 0;
     private static boolean mTelephony;
+    private static boolean isCN;
 
     private OnClockChangedListener mClockChangedListener;
 
@@ -75,6 +80,7 @@ public class PiePolicy {
         CRITICAL_BATTERY_LEVEL = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
         mTelephony = mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+        isCN = mContext.getResources().getConfiguration().locale.getCountry().equals("CN") || mContext.getResources().getConfiguration().locale.getCountry().equals("TW");
     }
 
     public void setOnClockChangedListener(OnClockChangedListener l){
@@ -100,12 +106,25 @@ public class PiePolicy {
     }
 
     public static String getNetworkProvider() {
-        String operatorName = mContext.getString(R.string.quick_settings_wifi_no_network);
-        TelephonyManager telephonyManager = (TelephonyManager) mContext
-                .getSystemService(Context.TELEPHONY_SERVICE);
-        operatorName = telephonyManager.getNetworkOperatorName();
-        if(operatorName == null) {
-            operatorName = telephonyManager.getSimOperatorName();
+        String operatorName = Settings.System.getString(mContext.getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
+        if(TextUtils.isEmpty(operatorName)) {
+		operatorName = mContext.getString(R.string.quick_settings_wifi_no_network);
+		TelephonyManager telephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+		if(isCN) {
+		    String operator = telephonyManager.getNetworkOperator();
+		    if(TextUtils.isEmpty(operator))
+		        operator = telephonyManager.getSimOperator();
+		    SpnOverride mSpnOverride = new SpnOverride();
+		    operatorName = mSpnOverride.getSpn(operator);
+		    if(operatorName == null) {
+		        operatorName = telephonyManager.getSimOperatorName();
+		    }    		
+		} else {
+		    operatorName = telephonyManager.getNetworkOperatorName();
+		    if(operatorName == null) {
+		        operatorName = telephonyManager.getSimOperatorName();
+		    }
+		}
         }
         return operatorName.toUpperCase();
     }
