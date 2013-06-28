@@ -40,13 +40,21 @@
     <string name="toggle_LTE">仅使用 LTE 网络</string>
     <string name="toggle_FAVCONTACT">收藏的联系人</string>
     <string name="toggle_SOUNDSTATE">声音状态切换</string>
+    <string name="toggle_VOLUME">音量</string>
     <string name="toggle_NAVBARHIDE">导航栏自动隐藏</string>
+    <string name="toggle_POWERMENU">电源键菜单</string>
+    <string name="toggle_PROFILE">情景模式</string>
+    <string name="toggle_HYBRID">混合设置</string>
     <string name="toggle_QUICKRECORD">快捷录音</string>
     <string name="toggle_QUIETHOURS">静音时段</string>
     <string name="toggle_SLEEP">休眠</string>
+    <string name="toggle_ROOTBOX">高级设置</string>
+    <string name="toggle_DARK">酷黑主题</string>
     <string name="toggle_STATUSBAR">状态栏</string>
     <string name="toggle_SCREENSHOT">屏幕截图</string>
     <string name="toggle_REBOOT">重新启动</string>
     <string name="toggle_CUSTOM">自定义开关</string>
     <string name="toggle_STAYAWAKE">保持唤醒</string>
+    <string name="toggle_WIRELESSADB">无线 ADB</string>
+    <string name="toggle_MUSIC">音乐</string>
 </resources>

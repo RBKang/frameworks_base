@@ -27,6 +27,9 @@
     <string name="status_bar_please_disturb_button" msgid="3345398298841572813">"显示通知"</string>
     <string name="status_bar_recent_remove_item_title" msgid="6026395868129852968">"从列表中删除"</string>
     <string name="status_bar_recent_inspect_item_title" msgid="7793624864528818569">"应用信息"</string>
+
+    <string name="status_bar_recent_floating_item_title">悬浮窗模式</string>
+
     <string name="status_bar_no_recent_apps" msgid="6576392951053994640">"最近没有运行任何应用"</string>
     <string name="status_bar_accessibility_dismiss_recents" msgid="4576076075226540105">"关闭最近运行的应用"</string>
   <plurals name="status_bar_accessibility_recent_apps">
@@ -208,21 +211,33 @@
     <string name="quick_settings_swagger">屌爆</string>
     <string name="quick_settings_swaggersun">周日屌爆了</string>
     <string name="quick_settings_fbgt">蛋疼</string>
+    <string name="quick_settings_powermenu">电源键菜单</string>
+    <string name="quick_settings_rootbox">高级设置</string>
+    <string name="quick_settings_profile">情景模式</string>
     <string name="quick_settings_recording">正在录制……</string>
     <string name="quick_settings_recordingcap">录音已捕获</string>
     <string name="quick_settings_playing">正在播放……</string>
     <string name="quick_settings_quickrecord">快捷录音</string>
     <string name="quick_settings_nofile">长按开始录音</string>
     <string name="quick_settings_sleep">休眠</string>
+    <string name="quick_settings_volume">音量</string>
     <string name="quick_settings_reboot">重新启动</string>
     <string name="quick_settings_reboot_message">您的设备正在重新启动</string>
-    <string name="quick_settings_stayawake_on">已保持唤醒</string>
-    <string name="quick_settings_stayawake_off">不保持唤醒</string>
+    <string name="quick_settings_stayawake_on">保持唤醒已打开</string>
+    <string name="quick_settings_stayawake_off">保持唤醒已关闭</string>
+    <string name="quick_settings_adb_on"><xliff:g id="ip" example="192.168.1.5">%s</xliff:g></string>
+    <string name="quick_settings_adb_off">无线ADB已关闭</string>
+    <string name="quick_settings_hybrid">混合设置</string>
     <string name="status_bar_help_title" msgid="1199237744086469217">"通知会显示在这里"</string>
     <string name="status_bar_help_text" msgid="7874607155052076323">"向下滑动可随时查看通知。"\n"再次向下滑动可使用系统控制功能。"</string>
 
     <!--  AOKP 文本 -->
 
+    <!--  App window Strings -->
+    <string name="close">关闭</string>
+    <string name="app_window">应用程序</string>
+    <string name="toggles">开关</string>
+    <string name="ribbon">操作区</string>
     <!-- Target/Action Strings -->
     <string name="shortcut_label">AOKP动作</string>
     <string name="action_home">主屏幕</string>
@@ -280,9 +295,15 @@
     <string name="quick_settings_navbar_hide_off_label">隐藏导航栏已关闭</string>
     <string name="quick_settings_quiet_hours_on_label">静音时段已打开</string>
     <string name="quick_settings_quiet_hours_off_label">静音时段已关闭</string>
+    <string name="quick_settings_pie_on_label">Pie 已打开</string>
+    <string name="quick_settings_pie_off_label">Pie 已关闭</string>
+    <string name="quick_settings_rb_dark_on_label">酷黑主题已打开</string>
+    <string name="quick_settings_rb_dark_off_label">酷黑主题已关闭</string>
     <string name="quick_settings_sound_on">声音已打开</string>
     <string name="quick_settings_statusbar_on_label">状态栏已打开</string>
     <string name="quick_settings_statusbar_off_label">状态栏已关闭</string>
+    <string name="quick_settings_music_play">播放</string>
+    <string name="quick_settings_music_pause">暂停</string>
     <string name="quick_settings_swaggersuntoast">星期天真是屌爆了！</string>
     <string name="quick_settings_screenshot">屏幕截图</string>
 
@@ -298,4 +319,5 @@
     <string name="running_processes_item_description_p_s"><xliff:g id="numprocess">%1$d</xliff:g> 进程和 <xliff:g id="numservices">%2$d</xliff:g> 服务</string>
     <string name="running_processes_item_description_p_p"><xliff:g id="numprocess">%1$d</xliff:g> 进程和 <xliff:g id="numservices">%2$d</xliff:g> 服务</string>
     <string name="running_process_item_user_label">用户： <xliff:g id="user_name">%1$s</xliff:g></string>
+    <string name="pie_date_format">M月d日 E</string>
 </resources>
