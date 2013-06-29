@@ -111,6 +111,7 @@ import com.android.systemui.statusbar.policy.BluetoothController;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.ClockCenter;
 import com.android.systemui.statusbar.policy.DateView;
+import com.android.systemui.statusbar.policy.LunarDateView;
 import com.android.systemui.statusbar.policy.IntruderAlertView;
 import com.android.systemui.statusbar.policy.LocationController;
 import com.android.systemui.statusbar.policy.NetworkController;
@@ -283,6 +284,8 @@ public class PhoneStatusBar extends BaseStatusBar {
     // the date view
     DateView mDateView;
 
+    // // the lunar date View
+    LunarDateView mLunarDateView;
     // drag bar
     CloseDragHandle mCloseView;
     private int mCloseViewHeight;
@@ -580,6 +583,8 @@ public class PhoneStatusBar extends BaseStatusBar {
         mClearButton.setVisibility(View.GONE);
         mClearButton.setEnabled(false);
         mDateView = (DateView)mStatusBarWindow.findViewById(R.id.date);
+
+		mLunarDateView = (LunarDateView)mStatusBarWindow.findViewById(R.id.lunardate);
 
         mHasSettingsPanel = res.getBoolean(R.bool.config_hasSettingsPanel);
 
