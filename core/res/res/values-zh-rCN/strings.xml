@@ -1569,4 +1569,15 @@
     <string name="privacy_guard_notification">隐私防护执行中</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将无法获取任何隐私信息</string>
 
+    <!-- Gesture Unlock -->
+    <string name="lockscreen_gesture_instructions">请提供手势解锁图案</string>
+    <string name="lockscreen_gesture_correct">正确!</string>
+    <string name="lockscreen_gesture_wrong">错误，请重新输入</string>
+    <string name="keyguard_accessibility_gesture_unlock">手势解锁</string>
+    <string name="keyguard_accessibility_gesture_area">手势输入区</string>
+    <string name="kg_gesture_instructions">划出解锁手势</string>
+    <string name="kg_too_many_failed_gesture_attempts_dialog_message">
+        你已输入错误图案 <xliff:g id="number">%d</xliff:g> 次.
+        \n\n请于 <xliff:g id="number">%d</xliff:g> 秒后再重试.
+    </string>
 </resources>
