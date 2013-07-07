@@ -1578,6 +1578,6 @@
     <string name="kg_gesture_instructions">划出解锁手势</string>
     <string name="kg_too_many_failed_gesture_attempts_dialog_message">
         你已输入错误图案 <xliff:g id="number">%d</xliff:g> 次.
-        \n\n请于 <xliff:g id="number">%d</xliff:g> 秒后再重试.
+        \n\n请于 <xliff:g id="number">%d</xliff:g> 秒后重试.
     </string>
 </resources>
