@@ -1,18 +1,18 @@
 /*
- * Copyright (C) 2012 The MoKee Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright (C) 2012 The MoKee Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
 
 package android.util;
@@ -58,7 +58,7 @@ public class Lunar {
             0x1d0b6, 0x0d250, 0x0d520, 0x0dd45, 0x0b5a0, 0x056d0, 0x055b2,
             0x049b0, 0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0 };
 
-     private  int yearDays(int y) {
+     private int yearDays(int y) {
         int i, sum = 348;
         for (i = 0x8000; i > 0x8; i >>= 1) {
             if ((lunarInfo[y - 1900] & i) != 0)
@@ -67,7 +67,7 @@ public class Lunar {
         return (sum + leapDays(y));
     }
 
-     private  int leapDays(int y) {
+     private int leapDays(int y) {
         if (leapMonth(y) != 0) {
             if ((lunarInfo[y - 1900] & 0x10000) != 0)
                 return 30;
@@ -77,11 +77,11 @@ public class Lunar {
             return 0;
     }
 
-     private  int leapMonth(int y) {
+     private int leapMonth(int y) {
         return (int) (lunarInfo[y - 1900] & 0xf);
     }
 
-     private  int monthDays(int y, int m) {
+     private int monthDays(int y, int m) {
         if ((lunarInfo[y - 1900] & (0x10000 >> m)) == 0)
             return 29;
         else
@@ -93,7 +93,7 @@ public class Lunar {
         return Animals[(year - 4) % 12];
     }
 
-     private  String cyclicalm(int num) {
+     private String cyclicalm(int num) {
         final String[] Gan = mContext.getResources().getStringArray(R.array.gan);
         final String[] Zhi = mContext.getResources().getStringArray(R.array.zhi);
         return (Gan[num % 10] + Zhi[num % 12]);
@@ -116,7 +116,7 @@ public class Lunar {
         chineseDateFormat = new SimpleDateFormat(format1);
         Date baseDate = null;
         try {
-        	String format2 = mContext.getResources().getString(R.string.status_format2);
+            String format2 = mContext.getResources().getString(R.string.status_format2);
             baseDate = chineseDateFormat.parse(format2);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -171,21 +171,23 @@ public class Lunar {
         day = offset + 1;
     }
 
-    public  String getChinaDayString(int day) {
+    public String getChinaDayString(int day) {
         String chineseTen[] = mContext.getResources().getStringArray(R.array.chineseten);
         int n = day % 10 == 0 ? 9 : day % 10 - 1;
         if (day > 30)
             return "";
-        if (day == 10)
+        else if (day == 10)
             return mContext.getResources().getString(R.string.status_chushi);
+        else if (day == 30)
+            return mContext.getResources().getString(R.string.status_sanshi);
         else
             return chineseTen[day / 10] + chineseNumber[n];
     }
 
     public String toString() {
-    	String year1 = mContext.getResources().getString(R.string.status_year);
-    	String run1 = mContext.getResources().getString(R.string.status_leap);
-    	String month1 = mContext.getResources().getString(R.string.status_month);
+     String year1 = mContext.getResources().getString(R.string.status_year);
+     String run1 = mContext.getResources().getString(R.string.status_leap);
+     String month1 = mContext.getResources().getString(R.string.status_month);
         return cyclical() + animalsYear() + year1 + (leap ? run1 : "") + lunarMonthName[month - 1] + month1
                 + getChinaDayString(day);
     }
