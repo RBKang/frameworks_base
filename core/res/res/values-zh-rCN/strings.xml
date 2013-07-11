@@ -1569,6 +1569,9 @@
     <string name="privacy_guard_notification">隐私防护执行中</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> 将无法获取任何隐私信息</string>
 
+    <string name="permlab_interceptSmsSent">拦截传出短信</string>
+    <string name="permdesc_interceptSmsSent">允许程序拦截发送短信，可以防止恶意应用程序发送短信。</string>
+
     <!-- Gesture Unlock -->
     <string name="lockscreen_gesture_instructions">请提供手势解锁图案</string>
     <string name="lockscreen_gesture_correct">正确!</string>
