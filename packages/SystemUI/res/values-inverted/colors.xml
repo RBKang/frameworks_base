@@ -17,6 +17,6 @@
  */
 -->
 <resources>
-    <color name="status_bar_recents_app_label_color">#ff33b5e5</color>
+    <color name="status_bar_recents_app_label_color">#ffffffff</color>
     <color name="status_bar_recents_app_label_color_alt">#ff33b5e5</color>
 </resources>
