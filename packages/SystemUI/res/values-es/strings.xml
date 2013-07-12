@@ -351,4 +351,10 @@
     <string name="toggle_CUSTOM">Personalizado</string>
     <string name="toggle_STAYAWAKE">Permanecer despierto</string>
     <string name="toggle_WIRELESSADB">Wireless ADB</string>
+    
+    <string name="halo_dismiss">Descartar notificación</string>
+    <string name="halo_hide">Ocultar</string>
+    <string name="halo_clear_all">Limpiar todas las notificaciones</string>
+    <string name="halo_silence">Ocultar y silenciar hasta despertar</string>
+    
 </resources>
