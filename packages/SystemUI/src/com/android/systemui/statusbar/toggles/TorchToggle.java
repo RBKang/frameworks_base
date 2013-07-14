@@ -3,74 +3,63 @@ package com.android.systemui.statusbar.toggles;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.Settings;
+import android.view.View;
 
 import static com.android.internal.util.aokp.AwesomeConstants.*;
+import com.android.internal.util.cm.TorchConstants;
 import com.android.systemui.R;
 import com.android.systemui.aokp.AwesomeAction;
 
 public class TorchToggle extends StatefulToggle {
-    TorchObserver mObserver = null;
+
+    private boolean mActive = false;
 
     @Override
     public void init(Context c, int style) {
         super.init(c, style);
-        mObserver = new TorchObserver(mHandler);
-        mObserver.observe();
-    }
-
-    @Override
-    protected void cleanup() {
-        if (mObserver != null) {
-            mContext.getContentResolver().unregisterContentObserver(mObserver);
-            mObserver = null;
-        }
-        super.cleanup();
     }
 
     @Override
     protected void doEnable() {
-        AwesomeAction.launchAction(mContext, AwesomeConstant.ACTION_TORCH.value());
+        Intent i = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
+        mContext.sendBroadcast(i);
     }
 
     @Override
     protected void doDisable() {
-        AwesomeAction.launchAction(mContext, AwesomeConstant.ACTION_TORCH.value());
+        Intent i = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
+        mContext.sendBroadcast(i);
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        startActivity(TorchConstants.INTENT_LAUNCH_APP);
+        return super.onLongClick(v);
     }
 
     @Override
     protected void updateView() {
-        boolean enabled = Settings.System.getBoolean(mContext.getContentResolver(),
-                Settings.System.TORCH_STATE, false);
-        setIcon(enabled
-                ? R.drawable.ic_qs_torch_on
-                : R.drawable.ic_qs_torch_off);
-        setLabel(enabled
-                ? R.string.quick_settings_torch_on_label
-                : R.string.quick_settings_torch_off_label);
-        updateCurrentState(enabled ? State.ENABLED : State.DISABLED);
+        if (mActive) {
+            setIcon(R.drawable.ic_qs_torch_on);
+            setLabel(R.string.quick_settings_torch_on_label);
+            updateCurrentState(State.ENABLED);
+        } else {
+            setIcon(R.drawable.ic_qs_torch_off);
+            setLabel(R.string.quick_settings_torch_off_label);
+            updateCurrentState(State.DISABLED);
+        }
         super.updateView();
     }
 
-    protected class TorchObserver extends ContentObserver {
-        TorchObserver(Handler handler) {
-            super(handler);
-            observe();
-        }
 
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.TORCH_STATE), false, this);
-            onChange(false);
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            scheduleViewUpdate();
-        }
+    public void onReceive(Context context, Intent intent) {
+        mActive = intent.getIntExtra(TorchConstants.EXTRA_CURRENT_STATE, 0) != 0;
+        scheduleViewUpdate();
     }
 
 }
