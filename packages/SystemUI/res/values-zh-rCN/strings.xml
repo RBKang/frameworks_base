@@ -322,4 +322,11 @@
     <string name="running_processes_item_description_p_p"><xliff:g id="numprocess">%1$d</xliff:g> 进程和 <xliff:g id="numservices">%2$d</xliff:g> 服务</string>
     <string name="running_process_item_user_label">用户： <xliff:g id="user_name">%1$s</xliff:g></string>
     <string name="pie_date_format">M月d日 E</string>
+
+    <string name="accessibility_halo">打开 HALO</string>
+    <string name="halo_dismiss">忽略通知</string>
+    <string name="halo_hide">隐藏</string>
+    <string name="halo_clear_all">清除所有通知</string>
+    <string name="halo_silence">隐藏并沉默直到唤醒</string>
+
 </resources>

@@ -5742,17 +5742,6 @@ public final class Settings {
          */
         public static final String LOCK_SHOW_ERROR_PATH = "lock_pattern_show_error_path";
 
-        /**
-         * Whether autolock is enabled (0 = false, 1 = true)
-         * @hide
-         */
-        public static final String LOCK_GESTURE_ENABLED = "lock_gesture_autolock";
-
-        /**
-         * Whether lock gesture is visible as user enters (0 = false, 1 = true)
-         * @hide
-         */
-        public static final String LOCK_GESTURE_VISIBLE = "lock_gesture_visible_pattern";
 
         /**
          * This preference allows the device to be locked given time after screen goes off,
