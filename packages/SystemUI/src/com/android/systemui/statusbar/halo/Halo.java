@@ -811,11 +811,11 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
                                 tick(mLastNotificationEntry, gestureText, 0, 250);
 
                                 // Ping to notify the user we're back where we started
-                            if (mEnableColor) {
-                                mEffect.ping(mPaintHoloCustom, 0);
-                            } else {
-                                mEffect.ping(mPaintHolo, 0);
-                            }
+                                if (mEnableColor) {
+                                    mEffect.ping(mPaintHoloCustom, 0);
+                                } else {
+                                    mEffect.ping(mPaintHolo, 0);
+                                }
                             } else {
                                 setIcon(mMarkerIndex);
 
@@ -1227,9 +1227,9 @@ public class Halo extends FrameLayout implements Ticker.TickerCallback, TabletTi
 
                         // Pop while not tasking, only if notification is certified fresh
                         if (mEnableColor) {
-                            if (mGesture != Gesture.TASK) mEffect.ping(mPaintHoloCustom, HaloEffect.WAKE_TIME);
+                            if (mGesture != Gesture.TASK && mState != State.SILENT) mEffect.ping(mPaintHoloCustom, HaloEffect.WAKE_TIME);
                         } else {
-                        if (mGesture != Gesture.TASK && mState != State.SILENT) mEffect.ping(mPaintHolo, HaloEffect.WAKE_TIME);
+                            if (mGesture != Gesture.TASK && mState != State.SILENT) mEffect.ping(mPaintHolo, HaloEffect.WAKE_TIME);
                         }
                         if (mState == State.IDLE || mState == State.HIDDEN) {
                             mEffect.wake();
