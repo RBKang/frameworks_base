@@ -334,7 +334,7 @@ public final class BatteryStatsService extends IBatteryStats.Stub {
         }
 
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        if (adapter != null) {
+        if (adapter != null && mBluetoothHeadset != null) {
             adapter.closeProfileProxy(BluetoothProfile.HEADSET, mBluetoothHeadset);
             mBluetoothHeadset = null;
         }
